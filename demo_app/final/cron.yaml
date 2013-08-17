@@ -1,0 +1,4 @@
+cron:
+- description: generate thumbnails
+  url: /cron_thumbnail
+  schedule: every 10 minutes

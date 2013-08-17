@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block banner %}<h1>Welcome to DevLinkGram!</h1>{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="span12"><h3>Your and public most recent photos</h3></div>
+  </div>
+  {% for photo in photos %}
+    <div class="row">
+      <div class="span3">{{ photo.caption }}</div>
+      <div class="span2">
+        {% if photo.thumbnailed %}
+        <a href="/photo_details/{{ photo.key.id() }}">
+          <img src="/thumbnail/{{ photo.key.id() }}"/>
+        </a>
+        {% else %}
+          <img src="/img/clock.jpg"/>
+        {% endif %}
+      </div>
+      <div class="span2">{{ photo.timestamp.strftime('%b. %m, %Y') }}</div>
+      <div class="span2">{{ photo.owner.nickname() }}</div>
+    </div>
+    <div class="row"><div class="span12">&nbsp;</div></div>
+  {% endfor %}
+{% endblock %}

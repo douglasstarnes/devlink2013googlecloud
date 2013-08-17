@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block banner %}<h1>Search results for '{{ search_tag }}'</h1>{% endblock %}
+
+{% block content %}
+{% for photo in photos %}
+  <div class="row">
+    <div class="span3">{{ photo.caption }}</div>
+    <div class="span2">
+      <a href="/photo_details/{{ photo.key.id() }}">
+        <img src="/thumbnail/{{ photo.key.id() }}"/>
+      </a>
+    </div>
+    <div class="span2">{{ photo.timestamp.strftime('%b. %m, %Y') }}</div>
+    <div class="span2">{{ photo.owner.nickname() }}</div>
+  </div>
+  <div class="row"><div class="span12">&nbsp;</div></div>
+{% endfor %}
+{% endblock %} 

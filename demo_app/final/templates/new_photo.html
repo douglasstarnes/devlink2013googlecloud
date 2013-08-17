@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block banner %}<h1>Upload new photo</h1>{% endblock %}
+
+{% block content %}
+<form action="{{ upload_url }}" method="post" enctype="multipart/form-data">
+  <fieldset>
+    <label>Caption</label>
+    <input type="text" name="caption"/>
+    <label>Tags (separated by comma)</label>
+    <input type="text" name="tags"/>
+    <label>Choose a photo on your computer</label>
+    <input type="file" name="photo"/>
+    <label>Make photo private?
+      <input type="checkbox" name="private"/>
+    </label>
+    <input type="submit" value="Upload"/>
+  </fieldset>
+</form>
+{% endblock %}
+
